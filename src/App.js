@@ -151,8 +151,7 @@ function App() {
     createNewMovieRequest(newMovie)
       .then(response => {
         console.log("response: ", response.name);
-        // const newMovieWithId = { ...newMovie, id: response.name };
-        // setMovies([...movies, newMovieWithId]);
+        resetData();
         setLoading(false);
         setSnackbarInfo({
           open: true,
@@ -163,7 +162,7 @@ function App() {
       .catch(error => {
         console.log(error);
         alert("Error al crear pelicula.");
-        resetData();
+
         setLoading(false);
         setSnackbarInfo({
           open: true,
@@ -193,8 +192,6 @@ function App() {
     setLoading(true);
     updateMovieRequest(movieInfo.id, newMovie)
       .then(() => {
-        resetData();
-        setEditMode(false);
         setLoading(false);
         setSnackbarInfo({
           open: true,
@@ -252,6 +249,7 @@ function App() {
           message: "Pelicula eliminada correctamente",
           severity: SEVERITIES.SUCCESS,
         });
+        resetData();
       })
       .catch(error => {
         console.log(error);
