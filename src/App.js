@@ -297,7 +297,7 @@ function App() {
 
   const resetData = () => setMovieInfo(initialMovieInfo);
 
-  const actionProps = {
+  const addPanelProps = {
     handleMovieNameChange: handleMovieNameChange,
     handleDateChange: handleDateChange,
     handleMovieLanguageChange: handleMovieLanguageChange,
@@ -342,7 +342,7 @@ function App() {
             onClick={handleGetMoviesFromDB}>
             Actualizar
           </Button>
-          <AddMoviePanel editMode={editMode} {...actionProps} />
+          <AddMoviePanel editMode={editMode} {...addPanelProps} />
           <MovieGrid
             movies={movies}
             onClickEdit={handleClickEdit}
